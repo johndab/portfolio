@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import unittest
 
 class NewVisitorTest(unittest.TestCase):  
@@ -8,6 +11,19 @@ class NewVisitorTest(unittest.TestCase):
 
     def tearDown(self):  
         self.browser.quit()
+
+    def test_can_enter_cv(self):
+        # Jan can see a home page
+        self.browser.get('http://127.0.0.1:8000')
+        self.assertIn('Jan\'s blog', self.browser.title)
+
+        navbar = self.browser.find_element_by_id("navbarResponsive")
+        links = navbar.find_elements_by_tag_name('a')
+        self.assertEqual(2, len(links))
+        links[1].click()
+
+        self.assertIn('Jan\'s CV', self.browser.title)
+
 
     def test_can_see_cv(self):
         # Jan accesses a CV subpage
