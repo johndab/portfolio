@@ -1,8 +1,8 @@
 from django import forms
-from .models import Post
+from .models import CvRow
 
 class CvRowForm(forms.ModelForm):
 
     class Meta:
-        model = Post
-        fields = ('title', 'text',)
+        model = CvRow
+        fields = ('section', 'title', 'subtitle', 'date', 'content')

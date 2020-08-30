@@ -6,6 +6,13 @@
 
     <div id="professionalExperience">
       <h2>Professional Experience</h2>
+
+      {% for row in rows %}
+        <div class="item" >
+          {{ row }}
+        </div>
+      {% endfor %}
+
     </div>
 
     <div id="freelance">
@@ -26,6 +33,11 @@
 
     <div id="hobbies">
       <h2>Hobbies</h2>
+    </div>
+
+    <hr>
+    <div>
+      <a href="{% url 'cv_form' %}" >Add a new entry</a>
     </div>
   </div>
 {% endblock %}

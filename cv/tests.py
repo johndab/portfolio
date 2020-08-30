@@ -6,10 +6,9 @@ from django.http import HttpRequest
 class CvPageTest(TestCase):
 
     def test_view_returns_cv(self):
-        found = resolve('/cv')  
-        self.assertEqual(found.func, cv)
+        response = self.client.get('/cv/')
+        self.assertTemplateUsed(response, 'cv/cv.html')
 
-    # def test_view_returns_sections(self):
-    #     request = HttpRequest()  
-    #     response = cv(request)
-        # self.assertEqual(found.func, cv)
+    def test_cv_form_page_returns_correct_html(self):
+        response = self.client.get('/cv/new')
+        self.assertTemplateUsed(response, 'cv/form.html')
