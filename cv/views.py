@@ -5,7 +5,14 @@ from .models import CvRow
 
 def cv(request):
     rows = CvRow.objects.all()
-    return render(request, 'cv/cv.html', {'rows': rows})
+
+    return render(request, 'cv/cv.html', {
+        'professionalExperience': rows.filter(section='professionalExperience'),
+        'education': rows.filter(section='education'),
+        'technologies': rows.filter(section='technologies'),
+        'hobbies': rows.filter(section='hobbies'),
+        'languages': rows.filter(section='languages'),
+    })
 
 def form(request):
     if request.method == "POST":
