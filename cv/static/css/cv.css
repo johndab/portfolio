@@ -10,6 +10,27 @@
   color: white;
 }
 
+#technologies .h2 {
+  font-size: 18px;
+}
+#technologies .title {
+  font-size: 16px;
+}
+
+#languages .h2 {
+  font-size: 18px;
+}
+#languages .title {
+  font-size: 16px;
+}
+
+#hobbies .h2 {
+  font-size: 18px;
+}
+#hobbies .title {
+  font-size: 16px;
+}
+
 .item .subtitle {
   font-size: 16px;
 }
